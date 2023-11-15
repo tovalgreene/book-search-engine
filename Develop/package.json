@@ -1,0 +1,20 @@
+{
+  "name": "book-search-engine-root",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node server/server.js",
+    "install": "cd server && npm install && cd ../client && npm install && cd ..",
+    "server": "cd server && npm start",
+    "client": "cd client && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false && npm install --prefix client && npm run build --prefix client"
+  },
+  "devDependencies": {
+    "concurrently": "^6.0.0"
+  },
+  "engines": {
+    "node": "14.x"
+  }
+}
